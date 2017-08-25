@@ -1,0 +1,247 @@
+page-auth-card {
+  background: #f5f5f5;
+  .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+        color: #fff;
+        background-color: transparent;
+    }
+    .toolbar-background{
+       background: #302e2f !important;
+    }
+    .bar-button-default, .bar-button-default.bar-button-default, .bar-button-clear-default {
+      color: #fff;
+      background-color: transparent;
+    }
+    .code input ,.text-input[disabled]{
+      color:#ffb820;
+      opacity: 1;
+    }
+  .toolbar-content-ios ion-title,.toolbar-content ion-title{
+      background: #302e2f;
+      color: #fff;
+      .toolbar-title-ios,.toolbar-title{
+        color: #fff;
+      }
+    }
+    ion-content.card{
+      .listPut{
+            overflow: hidden;
+            width: 100%;
+            border-bottom: 1px solid #f5f5f5;
+            position: relative;
+            background: #fff;
+            label{
+              position: absolute;
+              left: 0;
+              top: 15px;
+                color:#333;
+                text-indent: 15px;
+                
+            }
+            input{
+                  font-size: 15px;
+                  line-height: 47px;
+                  border: none;
+                  padding: 5px 0 5px 85px;
+                  height: 47px;
+            }
+            button,#btnTime{
+              background: none;
+              line-height: 20px;
+              height: 49px;
+              position: absolute;
+              right: 0;
+              top: 0;
+              line-height: 20px;
+              display: block;
+              padding: 15px 10px;
+              // color: #ffb820;
+              color: #999;
+            }
+            .btnTime{
+                color: #ffb820 !important;
+            }
+            a[disabled], button[disabled], [ion-button][disabled] {
+                cursor: default;
+                 opacity: 1;
+                pointer-events: none;
+            }
+          }
+      .card-wei{
+        background: #f5f5f5;
+        p{
+            font-size: 12px;
+          color: #999;
+          text-align: center;
+          margin-top: 10px;
+        }
+        .list-ios,.list{
+          // background: red;
+          >.item-ios,>.item {
+              padding-left: 0px;
+              .input-wrapper{
+                text-indent: 15px;
+                box-shadow: 0 !important;
+                .codeId{
+                  width: 80%;
+                  input{
+                    width: 100%;
+                  }
+                }
+                
+                .label,.label-md{
+                      color: #333 !important;
+                }
+                .btn {
+                  max-width: 95px;
+                    input{
+                      color:#ffb700 ;
+                          width: 91px;
+                    text-align: right;
+                    float: right;
+                    background: #fff;
+                    }
+                  }
+              }
+          }
+            >.item-block{
+              border: none !important;
+                ion-input, .item-input ion-textarea {
+                position: static;
+                  .text-input{
+                    margin: 0 !important;
+                    height: 45px;
+                  }
+                }
+              .item-inner {
+                  box-shadow: 0 0 0 #fff !important;
+                }
+              &:first-child{
+                  border-top:none!important;
+                }
+                &:last-child{
+                  border-bottom:none!important;
+                  .item-inner{
+                    border-bottom: none;
+                  }
+                }
+                .item-inner {
+                    border-bottom: 0.55px solid #f5f5f5;
+                    box-shadow: 0 !important;
+                }
+
+            }
+        }
+        button.button-ios,button.button{
+                background-color: #cccccc !important;
+            border-radius:22px;
+        }
+        button.button-ios.realy, button.button.realy{
+              background-color: #ffb820 !important;
+            border-radius:22px;
+        }
+      }
+
+      .card-already {
+        overflow: hidden !important;
+        height: 100% !important;
+        background: #f5f5f5 !important;
+
+          .fromMess{
+            background: #fff;
+              .listPut{
+                overflow: hidden;
+                width: 100%;
+                border-bottom: 1px solid #f5f5f5;
+                position: relative;
+                height: 45px;
+                label{
+                  position: absolute;
+                  left: 15px;
+                  top:15px;
+                  font-size: 15px;
+                  color: #333;
+                }
+                span{
+                  font-size: 15px;
+                  line-height: 25px;
+                  border: none;
+                  display: inline-block;
+                  padding: 10px 0 10px 125px;
+                }
+              }
+          }
+          h2{
+            font-size: 14px;
+            color: #999;
+            margin-left: 15px;
+            margin: 10px 0 10px 15px;
+          }
+        p{
+          margin-left: 15px;
+          font-size: 12px;
+          color: #999;
+        }
+        .row{
+          padding: 15px;
+          p{
+            margin-left: 0px;
+            font-size: 12px;
+            color: #333;
+            text-align: left;
+            margin-bottom: 9px;
+            .check{
+              color: #ffb700;
+              font-size: 18px;
+              vertical-align: middle;
+              margin-right: 3px;
+            }
+            span{
+              color: #ffb700;
+            }
+          }
+          // .button-ios,.button{
+          //     background: #ffb700 !important;
+          //     border-radius:22px;
+          //     width: 100%;
+          // }
+          //  .button-ios,.button{
+          //     background: #ffb700 !important;
+          //     border-radius:22px;
+          //     width: 100%;
+          // }
+          .button-ios.gray,.button.gray{
+              background: #cccccc !important;
+              border-radius:22px;
+              width: 100%;
+          }
+        }
+      }
+
+    }
+    .bar-button-default-md{
+      position: absolute;
+      z-index: 100;
+    }
+    ion-title{
+      background: #302e2f;
+      color: #fff;
+      .toolbar-title-ios,.toolbar-title{
+        color: #fff;
+      }
+       .toolbar-title-md{
+         text-align: center
+      }
+
+    }
+    .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: #f5f5f5 !important;
+      box-shadow: none !important;
+  }
+  .list .item-input:last-child {
+     box-shadow: 0 0 0 #f5f5f5 !important;
+  }
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: #f5f5f5;
+  }
+
+}

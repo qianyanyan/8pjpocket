@@ -1,0 +1,163 @@
+<ion-header>
+    <ion-navbar>
+      <ion-buttons start class="leftNav">
+          <button ion-button icon-only [navPush]="helpPage">
+           <ion-icon  name="ios-help-circle-outline"></ion-icon >
+          </button>
+      </ion-buttons>
+      <ion-title center>
+        八戒快钱
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+ <div class="ionCard">
+   <ion-card (click)="submitLoanForm('auth')">
+     <header>
+         <img alt="" src="assets/icon/ban_01.jpg" class="banHear" />
+         <h4>
+            <span>认证<em>{{ user ? user.getAuthedNumber() : 0 }}</em>/4</span>
+            <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+         </h4>
+     </header>
+     <ion-card-content>
+       <img alt="" src="assets/icon/ban_02.jpg" class="banHear" />
+       <h2>￥<em>1000</em><br/><span>信用额度</span></h2>
+     </ion-card-content>
+    <p class="success">6210  5847   2564  1000  261<span>成功借款<em>{{user && user.loan_times?user.loan_times:0}}</em>次</span></p>
+   </ion-card>
+ </div>
+  <section class="main loan" padding *ngIf="!loan || (loan.field_order_status == 'machine_fail' || loan.field_order_status == 'check_fail')">
+    <!-- <p>离本期还款日还有{{ loanPeriod }}天，请您注意及时还款。</p> -->
+    <p *ngIf="!api.isUserLoggedIn()">立即登录，马上用钱！</p>
+    <p *ngIf="api.isUserLoggedIn()">亲，您可以立即申请借款了！</p>
+    <div class="mainTop">
+      <ul>
+        <li><p>借款金额</p>
+        <strong><em>{{ loanAmount }}</em>元</strong></li>
+        <li><p>借款天数</p>
+        <strong><em>{{ loanPeriod }}</em>天</strong></li>
+      </ul>
+    </div>
+    <div class="mainCenter">
+      <ul>
+        <li><span *ngIf ="loanAmount !=800">800</span><span *ngIf ="loanAmount ==800" class="select">800<em>元</em></span></li>
+        <li><span *ngIf ="loanAmount !=900">900</span><span *ngIf ="loanAmount ==900" class="select">900<em>元</em></span></li>
+        <li><span *ngIf ="loanAmount !=1000">1000</span><span *ngIf ="loanAmount ==1000" class="select">1000<em>元</em></span></li>
+      </ul>
+      <ion-item no-lines class="snaps">
+        <ion-range min="800" max="1000" step="100" snaps="true" color="secondary" [(ngModel)]="loanAmount"></ion-range>
+      </ion-item>
+    </div>
+    <div center text-center class="mainBottom">
+      <span>平台禁止学生借款</span>
+      <button ion-button (click)="submitLoanForm('confirm')">立即借款</button>
+    </div>
+  </section>
+
+  <section class="examine" *ngIf="loan && (loan.field_order_status == 'apply' || loan.field_order_status == 'pending_check')">
+    <p>等待审核中，请稍后</p>
+    <section class="cd-container">
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3><i class="circles"></i>待审核</h3>
+             <p>您的借款申请将很快进行审<br/>核，请稍后!</p>
+           </div>
+      </div>
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3>
+               <i class="circlek"></i>
+               <span>申请提交成功</span>
+               <em>{{ (loan ? loan.created*1000 : 0) | date: 'MM-dd HH:mm'}}</em>
+              </h3>
+             <label>申请借款<em>{{ loan ? loan.field_amount : 0 }}</em>元，期限{{ loan ? loan.field_period : 0 }}天</label>
+           </div>
+      </div>
+    </section>
+    <div center text-center class="mainBottom">
+      <button ion-button>请耐心等待</button>
+    </div>
+  </section>
+ <section class="lending" *ngIf="loan && loan.field_order_status == 'lending_success'">
+    <p>放款成功！快去您的绑定银行卡查看一下</p>
+    <section class="cd-container">
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3><i class="circles"></i>放款成功<em>{{ (loan ? loan.field_review_date*1000 : 0) | date: 'MM-dd HH:mm'}}</em></h3>
+             <p>借款已成功打到您的中国工商<br/>
+              银行尾号为{{ loan ? loan.field_period : 0 }}的账户中</p>
+           </div>
+      </div>
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3><i class="circlek"></i><span>审核成功</span><em>{{ (loan ? loan.field_review_date*1000 : 0) | date: 'MM-dd HH:mm'}}</em></h3>
+           </div>
+      </div>
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3><i class="circlek"></i><span>审核成功</span><em>{{ (loan ? loan.field_review_date*1000 : 0) | date: 'MM-dd HH:mm'}}</em></h3>
+             <label>申请借款<em>{{ loan ? loan.field_amount : 0 }}</em>元，期限{{ loan ? loan.field_period : 0 }}天</label>
+           </div>
+      </div>
+      </section>
+    <div center text-center class="mainBottom gray">
+      <button ion-button (click) = "gopaymeny()">我知道了</button>
+    </div>
+  </section>
+
+  <section class="golending" *ngIf="loan && (loan.field_order_status == 'lending' || loan.field_order_status == 'pending_lending')">
+    <p>你的借款审核通过,正在放款,请注意关注到账信息</p>
+    <section class="cd-container">
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3><i class="circles"></i>放款中<em>{{ (loan ? loan.changed*1000 : 0) | date: 'MM-dd HH:mm'}}</em></h3>
+             <p>申请成功，费用将从借款到账<br/>
+              次日后开始计算，请注意查收。</p>
+           </div>
+      </div>
+      <div class="cd-timeline-block">
+           <div class="cd-timeline-img">
+             <h3><i class="circlek"></i><span>审核成功</span><em>{{ (loan ? loan.field_review_date*1000 : 0) | date: 'MM-dd HH:mm'}}</em></h3>
+             <label>申请借款<em>{{ loan ? loan.field_amount : 0 }}</em>元，期限{{ loan ? loan.field_period : 0 }}天</label>
+           </div>
+      </div>
+    </section>
+    <div center text-center class="mainBottom gray">
+      <button ion-button>请耐心等待</button>
+    </div>
+  </section>
+
+  <section class="repayment" *ngIf="loan && loan.field_order_status == 'pending_payment'">
+    <section class="main">
+       <p>离本期还款日还有 {{-( loan.field_repayment_date | daysFromNow ) +1}}天，请您注意及时还款。</p>
+      <section>
+        <h3>待还金额（元）</h3>
+        <h2>{{ loan ? loan.field_amount : 0 }}</h2>
+        <h3>还款日期&nbsp;&nbsp;<strong>{{loan.field_repayment_date*1000 | date: 'MM-dd'}}</strong></h3>
+      </section>
+      <div center text-center [ngClass]="{'mainBottom':true,'gray':loan&&loan.payment&&loan.payment.isWaiting()}">
+        <button ion-button [navPush]="(!loan.payment||!loan.payment.isWaiting())?payPage:false">立即还款</button>
+      </div>
+    </section>
+  </section>
+
+  <section class="repayment" *ngIf="loan && loan.field_order_status == 'overdue'">
+    <section class="main">
+       <p class="overDay" *ngIf="loan.field_order_status == 'overdue'">你已经逾期  &nbsp;&nbsp;{{ loan.field_repayment_date | daysFromNow}}天，请您注意及时还款。</p>
+      <!-- <p class="overDay" >离本期还款日还有{{}}天，请您注意及时还款。</p> -->
+      <section>
+        <h3>还款金额（元）</h3>
+        <h2>{{ loan ? loan.field_amount + loan.field_overdue_fee : 0 }}</h2>
+        <p>还款日期&nbsp;&nbsp;<span>{{loan.field_repayment_date*1000 | date: 'MM-dd'}}</span></p>
+      </section>
+      <div center text-center [ngClass]="{'mainBottom':true,'gray':loan&&loan.payment&&loan.payment.isWaiting()}">
+        <button ion-button [navPush]="(!loan.payment||!loan.payment.isWaiting())?payPage:false">立即还款</button>
+      </div>
+    </section>
+  </section>
+
+
+</ion-content>

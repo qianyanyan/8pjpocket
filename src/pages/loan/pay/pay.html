@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      还款支付
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="fromMess">
+
+    <section>
+
+       <div class="listInput">
+          <a href="javascript:;">
+             <label>还款金额</label>
+             <input type="text" value="{{ loan ? loan.field_amount + loan.field_overdue_fee : 0 }}元" readonly/>
+           </a>
+       </div>
+       <div class="listInput">
+          <a href="javascript:;">
+             <label>还款账户</label>
+             <input type="text" value="{{ user ? (user.bankCardProfile ? user.bankCardProfile.field_cardid : '') : '' }}" readonly/>
+           </a>
+       </div>
+       <div class="listInput">
+          <a href="javascript:;">
+             <label>所属银行</label>
+             <span>{{backCardProfile?backCardProfile.field_suoshuyinxing?banks?banks[backCardProfile.field_suoshuyinxing]:'':'':''}}</span>
+           </a>
+       </div>
+       <h2></h2>
+    </section>
+    <div class="order-detail-btn">
+      <button ion-button block round center color="main-color">确认</button>
+    </div>
+  </form>
+
+<div class="model" id="model">
+   <section>
+     <img src="assets/icon/success_03.jpg" />
+     <h3>支付申请提交成功</h3>
+   </section>
+</div>
+</ion-content>

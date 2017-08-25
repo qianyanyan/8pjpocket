@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      手机认证
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+    <img class="dv_logo" src="assets/icon/mo.png" />
+    <section class="fromMess">
+      <div class="listPut">
+        <label>短信验证</label>
+        <input type="text" formControlName="captcha" placeholder="请输入短信验证" />
+        <button (click)='sendVerificationCode();' [disabled]="sendVerificationCodeDisabled">{{ sendVerificationCodeText }}</button> 
+      </div>
+    </section>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button [ngClass]="{'realy': this.form.status == 'VALID' }" >下一步</button>
+      </ion-col>
+    </ion-row>
+    <h2>
+      小贴士
+    </h2>
+    <p>
+      短信验证码由运营商发送，每次获取时间间隔10秒。
+    </p>
+  </form>
+</ion-content>

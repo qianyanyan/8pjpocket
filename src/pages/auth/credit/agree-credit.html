@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      芝麻信用认证
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <img class="dv_logo" src="assets/icon/xin.jpg" />
+
+ <section>
+   <h2>您点击“同意授权”按钮接受如下内容：</h2>
+   <p>1、授权八戒快钱将以下信息包括但不限于姓名、身份证号码和手机号码传递给芝麻信用，
+     用于芝麻信用自行或通过合作机构对你的身份信息进行校验；</p>
+  <p>2、授权用钱包向芝麻信用查询你的芝麻分和相关信用信息，用于评估其与你之间的交易或服务条件。
+  </p>
+  <h3>特别注意</h3>
+  <p>当你发生违约或其他影响信用的不良行为时：</p>
+  <p>1、你授权芝麻信用可根据八戒快钱的查询请求，提供可以联系到你的电话号码、地址等联系信息、用于追究违约责任。</p>
+  <p>2、芝麻信用会记录你的违约行为并依法向他人提供，这可能影响你的贷款等信用生活服务。</p>
+  <ion-row>
+    <ion-col center text-center>
+      <!-- <button ion-button (click)="pushsuccesssPage();"  [navPush]="creditsuccessPage" (click)="pushsuccesssPage();">同意授权</button> -->
+      <button ion-button  (click)="gocardPage()">同意授权</button>
+      <span>什么是芝麻信用</span>
+    </ion-col>
+  </ion-row>
+ </section>
+
+ <div class="model" id="modelcred">
+    <section>
+      <img src="assets/icon/success_03.jpg" />
+      <h3>支付成功</h3>
+    </section>
+ </div>
+
+
+</ion-content>

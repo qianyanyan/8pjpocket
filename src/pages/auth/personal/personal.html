@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      个人认证
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- <h2 *ngIf="!isAuthComplete"><img alt="" src="assets/icon/person_top.jpg" class="banHear" /></h2> -->
+  <h2 *ngIf="!isAuthComplete"><img alt="" src="assets/icon/person_top1.png" class="banHear" /></h2>
+  <p class="mustNeed"><strong>必填</strong>（身份证认证信息保存后将无法修改，请务必保存正确）</p>
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="huotijiance" [readonly]="isAuthComplete"/>
+  <section>
+    <div class="listInput">
+      <a href="javascript:;">
+        <label>人脸识别</label>
+        <span>
+          <img src="assets/icon/per_face.png" (click)="faceDetectionTapped()" *ngIf="!headshot" />
+          <img src="{{ api.baseUrl + headshot.url }}" (click)="faceDetectionTapped()" *ngIf="headshot" />
+        </span>
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+        <label>身份证照</label>
+        <span>
+            <!-- <img src="assets/icon/yz.png" *ngIf=" isAuthComplete" />
+          <img src="assets/icon/zg.png" *ngIf=" isAuthComplete" />   -->
+           <img src="{{ api.baseUrl + frontIDCard.url }}" *ngIf=" frontIDCard && isAuthComplete" />
+          <img src="{{ api.baseUrl + rearIDCard.url }}" *ngIf=" rearIDCard && isAuthComplete" />  
+          <img src="assets/icon/per_z .png" (click)="frontIDCardTapped()" *ngIf="!frontIDCard &&!isAuthComplete" /> 
+          <img src="{{ api.baseUrl + frontIDCard.url }}" (click)="frontIDCardTapped()" *ngIf="frontIDCard &&!isAuthComplete" />
+          <img src="assets/icon/per_f.png" (click)="rearIDCardTapped()" *ngIf="!rearIDCard &&!isAuthComplete" />
+          <img src="{{ api.baseUrl + rearIDCard.url }}" (click)="rearIDCardTapped()" *ngIf="rearIDCard && !isAuthComplete" />
+        </span>
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+      <label>姓名</label>
+      <input type="text" formControlName="name" [readonly]="isAuthComplete" />
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+      <label>身份证</label>
+      <input type="text" formControlName="cardid" [readonly]="isAuthComplete" />
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+        <!-- <label>现居城市(省)</label>  -->
+         <label>现居城市</label>
+         <!-- <ion-select formControlName="province" submitText="确定" cancelText="取消" okText="确定" (ionChange)="onProvinceChanged()">
+          <ion-option *ngFor="let province of provinces" value="{{ province.name }}">{{ province.name }}</ion-option>
+        </ion-select>  -->
+         
+          <city-picker item-content [cancelText]="'取消'" [doneText]="'完成'" [separator]="' - '"  [citiesData]="cityData"
+            [(ngModel)]="cityName" formControlName="region" (ionChange)="cityChange($event)">
+       </city-picker>     
+            <!-- <city-picker item-content [cancelText]="'取消'" [doneText]="'完成'" [separator]="' - '"  [citiesData]="cityData"
+            [(ngModel)]={{provin}} {{citi}} {{distr}} formControlName="region" (ionChange)="cityChange($event)">
+       </city-picker>      -->
+        <ion-icon name="arrow-forward" ></ion-icon>
+        
+      </a>
+    </div>
+     <!-- <div class="listInput">
+      <a href="javascript:;">
+        <label>现居城市(市)</label>
+        <ion-select formControlName="city" submitText="确定" cancelText="取消" okText="确定" (ionChange)="onCityChanged()" >
+          <ion-option *ngFor="let city of cities" value="{{ city.name }}">{{ city.name }}</ion-option>
+        </ion-select>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+        <label>现居城市(区)</label>
+          <ion-select formControlName="district" submitText="确定" cancelText="取消" okText="确定">
+          <ion-option *ngFor="let district of districts" value="{{ district.name }}">{{ district.name }}</ion-option>
+        </ion-select>  
+        
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+    </div>  -->
+    <div class="listInput">
+      <a href="javascript:;">
+      <label>详细地址</label>
+      <input type="text" placeholder="请详细输入街道门牌信息" formControlName="xiangxidizhi" />
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+        <ion-label>居住时长</ion-label>
+        <ion-select formControlName="juzhu" interface="popover">
+          <ion-option value="1">半年以内</ion-option>
+          <ion-option value="2">半年到一年</ion-option>
+          <ion-option value="3">一年以上</ion-option>
+        </ion-select>
+         <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+    </div>
+    <h2>紧急联系人</h2>
+    <div class="listInput link">
+       <a href="javascript:;">
+        <label>亲属关系</label>
+        <ion-select formControlName="qinshuguanxi" interface="popover">
+          <ion-option value="1">父母</ion-option>
+          <ion-option value="2">夫妻</ion-option>
+          <ion-option value="3">兄弟姐妹</ion-option>
+          <ion-option value="4">子女</ion-option>
+        </ion-select>
+        <input type="text" value="" class="linkMess" formControlName="qinshuguanxi" [readonly]="isAuthComplete"/>
+        <ion-icon name="arrow-forward" md="md-arrow-forward" ></ion-icon>
+      </a> 
+       
+    </div>
+    <div class="listInput link">
+      <a href="javascript:;">
+        <label>电话</label>
+        <input type="text" formControlName="qinshudianhua"  [readonly]="!platform.is('core')" />
+        <ion-icon name="contact" class="contact" (click)="pickContact('qinshudianhua')"></ion-icon>
+      </a>
+    </div>
+    <div class="listInput link">
+      <a href="javascript:;">
+        <label>社会关系</label>
+          <ion-select formControlName="shehuiguanxi" interface="popover">
+          <ion-option value="1">领导</ion-option>
+          <ion-option value="2">同事</ion-option>
+          <ion-option value="3">同学</ion-option>
+          <ion-option value="4">朋友</ion-option>
+          <ion-option value="5">其它</ion-option>
+        </ion-select>
+        <ion-icon name="arrow-forward" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </a>
+    </div>
+    <div class="listInput link">
+      <a href="javascript:;">
+        <label>电话</label>
+        <input type="text" value="" formControlName="shehuidianhua"  [readonly]="!platform.is('core')" />
+         <ion-icon name="contact" class="contact" (click)="pickContact('shehuidianhua')"></ion-icon> 
+        
+      </a>
+    </div>
+    <h3>选填</h3>
+    <div class="listInput">
+      <a href="javascript:;">
+      <label>单位名称</label>
+      <input type="text" placeholder="请详细输入公司名称" formControlName="danweimingcheng" />
+      </a>
+    </div>
+    <div class="listInput">
+      <a href="javascript:;">
+      <label>详细地址</label>
+      <input type="text" placeholder="请详细输入公司地址"  formControlName="danweidizhi" />
+      </a>
+    </div>
+  </section>
+  <div class="order-detail-btn">
+    <p class="checked">
+      我已阅读并确认<em [navPush]="personAgreePage">《个人征信授权协议》</em>
+    </p>
+     <button ion-button block round center [ngClass]="{'realy': this.form.status == 'VALID'&&!isAuthComplete}">{{isAuthComplete?'更新保存':'下一步'}}</button>
+    
+    </div>
+
+  <!--{{ form.value | json }}-->
+  <!--{{ form.status | json }}-->
+  </form>
+  <div class="model" id="modelcred">
+      <section>
+        <img src="assets/icon/success_03.jpg" />
+        <h3>借款申请成功</h3>
+      </section>
+  </div>
+    <!-- <city-picker item-content [cancelText]="'取消'" [doneText]="'完成'" [separator]="' - '"  [citiesData]="cityData"
+            [(ngModel)]="cityName" (ionChange)="cityChange($event)">
+    </city-picker>  -->
+</ion-content>

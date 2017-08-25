@@ -1,0 +1,98 @@
+<ion-header no-border>
+  <ion-navbar color="mblue">
+    <ion-title>银行卡</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="card">
+    <!-- <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()"  class="card-wei">   -->
+ <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" *ngIf="!profile || !profile.isCompleted()" class="card-wei">   
+  <h2>  <img alt="" src="assets/icon/car.png" class="banHear" /></h2>
+  <input type="hidden" name="code_id" formControlName="code_id" />
+  <ion-list>
+    <ion-item>
+      <ion-label>银行卡号</ion-label>
+      <ion-input name="mobile" type="text" value="" formControlName="cardNum" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>所属银行</ion-label>
+      <!-- <ion-select cancelText="取消" okText="确定" formControlName="cardtype" required > -->
+      <ion-select interface="popover" formControlName="cardtype" required >
+        <ion-option *ngFor="let bank of banks | keys" value="{{ bank.key }}">{{ bank.value }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>银行卡开户地</ion-label>
+      <!-- <ion-select formControlName="province" submitText="确定" cancelText="取消" okText="确定" (ionChange)="onProvinceChanged()">
+        <ion-option *ngFor="let province of provinces" value="{{ province.name }}">{{ province.name }}</ion-option>
+      </ion-select> -->
+       <city-picker item-content [cancelText]="'取消'" [doneText]="'完成'" [separator]="' - '"  [citiesData]="cityData"
+            [(ngModel)]="cityName" formControlName="region" (ionChange)="cityChange($event)">
+       </city-picker>   
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>银行卡开户地(市)</ion-label>
+      <ion-select formControlName="city" submitText="确定" cancelText="取消" okText="确定" (ionChange)="onCityChanged()">
+        <ion-option *ngFor="let city of cities" value="{{ city.name }}">{{ city.name }}</ion-option>
+      </ion-select>
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>银行卡开户地(区)</ion-label>
+      <ion-select formControlName="district" submitText="确定" cancelText="取消" okText="确定">
+        <ion-option *ngFor="let district of districts" value="{{ district.name }}">{{ district.name }}</ion-option>
+      </ion-select>
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-item> -->
+    <ion-item>
+      <ion-label>银行预留手机号</ion-label>
+      <ion-input name="captcha" type="text" value="" formControlName="cardMobile" required></ion-input>
+    </ion-item>
+     <div class="listPut">
+        <label>验证码</label>
+        <input name="captcha" type="text" value="" placeholder="输入验证码" formControlName="cardCode" required class="codeId" />
+        <button [ngClass]="{'btnTime': this.form.get('cardMobile').status == 'VALID'&&this.form.get('cardNum').status == 'VALID' }" (click)='sendVerificationCode();' [disabled]="sendVerificationCodeDisabled">{{ sendVerificationCodeText }}</button>
+    </div>
+    </ion-list>
+    
+  <div padding>
+    <!-- <button ion-button color="icon-shop" block class="realy" [ngClass]="{'realy': this.form.status == 'VALID' }" (click)="CardConfirm()">认证</button> -->
+    <button ion-button color="icon-shop" block class="realy" [ngClass]="{'realy': this.form.status == 'VALID' }" >认证</button>
+  </div>
+  <p>放款使用，需填写本人名下有效银行卡<br/>确保银行预留手机号码正确</p>
+
+  </form>
+
+   <div *ngIf="profile && profile.isCompleted()" class="card-already">  
+    <section class="fromMess">
+      <div class="listPut">
+        <label>银行卡号</label>
+        <span>{{ profile? profile.field_cardid ? profile.field_cardid : '' : '' }}</span>
+      </div>
+      <div class="listPut">
+        <label>所属银行</label>
+        <span>{{ profile? profile.field_suoshuyinxing ?banks?banks[profile.field_suoshuyinxing]:'':'':''}}</span>
+      </div>
+      <div class="listPut">
+        <label>银行预留手机</label>
+        <span>{{ profile? profile.field_card_owner_phone ? profile.field_card_owner_phone : '' : '' }}</span>
+      </div>
+    </section>
+    <h2>
+      小贴士
+    </h2>
+    <p>
+      1.借款申请通过后，我们将会打款至该卡
+    </p>
+    <p>
+      2.若要更新收款银行卡，点击重新绑卡即可
+    </p>
+    <p>3.未完成借款期间不允许更换银行卡</p>
+    <ion-row>
+      <ion-col center text-center >
+         <!-- <button ion-button (click)="rebind()">重新绑定</button>  -->
+         <button ion-button class="gray">重新绑定</button> 
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

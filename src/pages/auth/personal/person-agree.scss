@@ -1,0 +1,54 @@
+page-account-person-agree{
+  background: #f5f5f5;
+    .bar-button-default-md{
+    position: absolute;
+    z-index: 100;
+  }
+    ion-title{
+      background: #302e2f;
+      color: #fff;
+      .toolbar-title-ios,.toolbar-title{
+        color: #fff;
+      }
+       .toolbar-title-md{
+         text-align: center
+      }
+
+    }
+  .toolbar-background{
+     background: #302e2f !important;
+  }
+  .bar-button {
+    color: #fff !important;
+  }
+  .dv_logo {
+      display: block;
+    width: 100%;
+      border: none !important;
+
+  }
+  ion-content {
+      article{
+         h2{
+           font-size: 16px;
+           color: #333;
+           line-height: 30px;
+         }
+          h3{
+            text-indent:30px; 
+             font-size: 16px;
+            color: #333;
+            line-height: 25px;
+          }
+          p{
+            color: #666;
+            font-size: 14px;
+            line-height: 25px;
+            text-indent:30px; 
+            span{
+              color: #ff5555;
+            }
+          }
+      }
+  }
+}

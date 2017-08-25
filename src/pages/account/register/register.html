@@ -1,0 +1,30 @@
+<ion-content padding class="loginPage">
+    <img class="dv_logo" src="assets/icon/login_03.jpg" />
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="fromMess">
+      <input type="hidden" name="code_id" formControlName="code_id" />
+      <div class="listPut">
+          <label><ion-icon name="tell"></ion-icon></label>
+          <input type="text" formControlName="mobile" placeholder="11位手机号码" required />
+      </div>
+      <div class="listPut">
+          <label><ion-icon name="pass"></ion-icon></label>
+          <input type="password" placeholder="6-20位密码" formControlName="password" required />
+      </div>
+      <div class="listPut">
+        <label><ion-icon name="code"></ion-icon></label>
+        <input type="text" placeholder="输入验证码" formControlName="code" required />
+        <!-- <button [ngClass]="{'btnTime': this.form.get('mobile').status == 'VALID' }" (click)='sendVerificationCode();' [disabled]="sendVerificationCodeDisabled">{{ sendVerificationCodeText }}</button> -->
+        <input class="button" type="button" [ngClass]="{'btnTime': this.form.get('mobile').status == 'VALID' }" (click)='sendVerificationCode();' [disabled]="sendVerificationCodeDisabled" [value]="sendVerificationCodeText">
+      </div>
+      <p>注册即表示同意<span [navPush]="agreePage">《八戒快钱用户协议》</span></p>
+
+      <div padding>
+          <button ion-button color="icon-shop" block [ngClass]="{'realy': this.form.status == 'VALID' }">注册</button>
+      </div>
+    </form>
+
+    <div>
+      <p class="goLogin" (click)="loginClicked()">已有账号去登录 <ion-icon name="arrow-dropright"></ion-icon></p>
+    </div>
+
+</ion-content>

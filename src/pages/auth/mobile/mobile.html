@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      手机认证
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+   <div *ngIf="profile && profile.isCompleted()"> 
+    <section class="imgTop">
+      <img src="assets/icon/success_03.jpg" />
+      <p>手机运营商认证已完成</p>
+    </section>
+
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button navPop>已认证</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="!profile || !profile.isCompleted()" class="fromtell">
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <img class="dv_logo" src="assets/icon/mo.png" />
+      <section class="fromMess">
+        <div class="listPut">
+          <label>手机号码</label>
+          <input type="text"  placeholder="11位手机号码" formControlName="mobile" [readonly]="profile&&profile.isCompleted()" />
+        </div>
+        <div class="listPut">
+          <label>服务密码</label>
+          <input type="password" formControlName="password" placeholder="请输入服务密码" [readonly]="profile&&profile.isCompleted()"/>
+          <button [navPush]="forgotPasswordPage">忘记密码?</button>
+        </div>
+      </section>
+      <ion-row>
+        <ion-col center text-center>
+          <button ion-button [ngClass]="{'realy': this.form.status == 'VALID'|| (profile&&profile.isCompleted())}">下一步</button>
+        </ion-col>
+      </ion-row>
+      <h2>
+        小贴士
+      </h2>
+      <p>
+        1、请输入正确的运营商密码，如忘记请点击"忘记密码"
+      </p>
+      <p>
+        2、运营商认证需要2-3分钟，请耐心等待
+      </p>
+    </form>
+  </div>
+</ion-content>

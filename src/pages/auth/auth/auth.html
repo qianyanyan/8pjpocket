@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      认证中心
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines padding>
+    <ion-item>
+      <ion-icon name="person"></ion-icon>
+      <button ion-item [navPush]="personalPage">
+        个人信息
+        <label>{{ user ? (user.isPersonalProfileCompleted() ? '已认证' : '未认证') : '未认证' }}</label>
+      </button>
+      <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="moblie"></ion-icon>
+      <button ion-item [navPush]="mobilePage">
+        手机认证
+        <label>{{ user ? (user.isMobileOperatorCompleted() ? '已认证' : '未认证') : '未认证' }}</label>
+      </button>
+      <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </ion-item>
+     <ion-item>
+        <ion-icon name="zhima"></ion-icon>
+      <button ion-item [navPush]="creditPage">
+        芝麻授信
+        <label>已授信</label>
+      </button>
+      <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </ion-item> 
+    <ion-item>
+        <ion-icon name="yinhang"></ion-icon>
+      <button ion-item [navPush]="authCardPage">
+        银行卡
+        <label>{{ user ? (user.isBankCardCompleted() ? '已认证' : '未认证') : '未认证' }}</label>
+      </button>
+      <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

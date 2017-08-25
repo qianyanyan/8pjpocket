@@ -1,0 +1,653 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      帮助中心
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="pet">
+          <ion-segment-button value="认证">
+          认证
+        </ion-segment-button>
+        <ion-segment-button value="借款">
+          借款
+        </ion-segment-button>
+        <ion-segment-button value="还款">
+          还款
+        </ion-segment-button>
+        
+      </ion-segment>
+    </ion-toolbar>
+
+    <div [ngSwitch]="pet">
+      <div *ngSwitchCase="'借款'" class="loan">
+    <!-- <ion-list *ngSwitchCase="'借款'" class="loan"> -->
+        <ion-list style="margin: 0px">
+          <ion-item>
+             <ion-row *ngIf="temp =='show1'"  (click)="accordion('1','hihe')"> 
+                  <i></i>
+                    如何使用八戒快钱借款？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp !='show1'"  (click)="accordion('1','show')"> 
+                  <i></i>
+                    如何使用八戒快钱借款？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+          </ion-item>
+          <ion-card *ngIf="temp =='show1'" >
+        首先需用实名认证手机号进行注册，然后完成必要的4项认证，即可申请借款。提交借款申请后，平台会进行审核，审核通过后会将所借款项发放至绑定的银行卡中。
+         </ion-card>
+          <ion-item >
+             <!-- <i></i>
+            借款额度是多少？ -->
+            <!-- <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show2'"  (click)="accordion('2','hihe')"></ion-icon>
+            <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show2'"  (click)="accordion('2','show')"></ion-icon>   -->
+             <ion-row *ngIf="temp=='show2'"  (click)="accordion('2','hihe')"> 
+                  <i></i>
+                   借款额度是多少？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row  *ngIf="temp!='show2'"  (click)="accordion('2','show')"> 
+                  <i></i>
+                    借款额度是多少？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row> 
+          </ion-item>
+          <ion-card *ngIf="temp=='show2'">
+           用户注册后，八戒快钱初始额度默认为1000元，需要通过认证才能申请借款。具体借款额度，根据您提供的认证信息，在审核之后确定。
+         </ion-card>
+          <ion-item>
+              <!-- <i></i>
+            借款期限是多少？
+            <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show3'"  (click)="accordion('3','hihe')"></ion-icon>
+            <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show3'"  (click)="accordion('3','show')"></ion-icon> -->
+             <ion-row *ngIf="temp=='show3'"  (click)="accordion('3','hihe')"> 
+                  <i></i>
+                   借款期限是多少？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row  *ngIf="temp!='show3'"  (click)="accordion('3','show')"> 
+                  <i></i>
+                    借款期限是多少？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+          </ion-item>
+          <ion-card *ngIf="temp=='show3'">
+            借款期限14天
+         </ion-card>
+          <ion-item>
+              <!-- <i></i>借款需要满足什么条件？
+              <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show4'"   (click)="accordion('4','hihe')"></ion-icon>
+              <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show4'"  (click)="accordion('4','show')"></ion-icon> -->
+               <ion-row *ngIf="temp=='show4'"   (click)="accordion('4','hihe')"> 
+                  <i></i>
+                   借款需要满足什么条件？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show4'"  (click)="accordion('4','show')"> 
+                  <i></i>
+                    借款需要满足什么条件？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+          </ion-item>
+          <ion-card *ngIf="temp=='show4'">
+            （1）年龄：18-35周岁；
+            （2）拥有稳定的收入来源；
+            （3）无不良的信用记录。
+         </ion-card>
+          <ion-item>
+              <!-- <i></i>如何查看借款进度？
+              <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show5'"   (click)="accordion('5','hihe')"></ion-icon>
+              <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show5'"  (click)="accordion('5','show')"></ion-icon> -->
+              <ion-row *ngIf="temp=='show5'"   (click)="accordion('5','hihe')"> 
+                  <i></i>
+                   如何查看借款进度？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show5'"  (click)="accordion('5','show')"> 
+                  <i></i>
+                    如何查看借款进度？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+          </ion-item>
+          <ion-card *ngIf="temp=='show5'" >
+            您可在申请信息填写后，在首页查看您的借款进度。
+         </ion-card>
+          <ion-item>
+              <!-- <i></i>审核需要多长时间？
+              <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show6'" (click)="accordion('6','hihe')"></ion-icon>
+              <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show6'"  (click)="accordion('6','show')"></ion-icon> -->
+              <ion-row *ngIf="temp=='show6'" (click)="accordion('6','hihe')"> 
+                  <i></i>
+                   审核需要多长时间？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show6'"  (click)="accordion('6','show')"> 
+                  <i></i>
+                   审核需要多长时间？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+          </ion-item>
+          <ion-card *ngIf="temp=='show6'" >
+            当天提交的审核会在当天处理，每天17点后提交的审核会顺延到第二天的工作时间处理。
+         </ion-card>
+         <ion-item>
+             <!-- <i></i>审核通过后多久打款？
+             <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show7'"  (click)="accordion('7','hihe')"></ion-icon>
+             <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show7'"  (click)="accordion('7','show')"></ion-icon> -->
+             <ion-row *ngIf="temp=='show7'"  (click)="accordion('7','hihe')"> 
+                  <i></i>
+                   审核通过后多久打款？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show7'"  (click)="accordion('7','show')"> 
+                  <i></i>
+                   审核需要多长时间？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+         </ion-item>
+         <ion-card *ngIf="temp=='show7'">
+           审核通后当天打款，最快半小时内打款。
+        </ion-card>
+        <ion-item>
+            <!-- <i></i>审核被拒绝的原因一般有哪些？
+            <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show8'"  (click)="accordion('8','hihe')"></ion-icon>
+            <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show8'"  (click)="accordion('8','show')"></ion-icon> -->
+            <ion-row *ngIf="temp=='show8'"  (click)="accordion('8','hihe')"> 
+                  <i></i>
+                  审核被拒绝的原因一般有哪些？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show8'"  (click)="accordion('8','show')"> 
+                  <i></i>
+                   审核被拒绝的原因一般有哪些？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+        </ion-item>
+        <ion-card *ngIf="temp=='show8'">
+          可能有以下3种原因：
+          （1）认证信息不全面，请将认证信息填写完整；
+          （2）认证信息有误，请核实后重新填写；
+          （3）综合信用评分不足也可能被拒绝。
+       </ion-card>
+       <ion-item>
+           <!-- <i></i>被拒绝后是否可以再次申请？
+           <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show9'"  (click)="accordion('9','hihe')"></ion-icon>
+           <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show9'"  (click)="accordion('9','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show9'"  (click)="accordion('9','hihe')"> 
+                  <i></i>
+                 被拒绝后是否可以再次申请？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show9'"  (click)="accordion('9','show')"> 
+                  <i></i>
+                   被拒绝后是否可以再次申请？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+       </ion-item>
+       <ion-card *ngIf="temp=='show9'">
+        可以，您可将信息核实完善后再次申请。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>借款金额会被发放到哪里？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show10'"  (click)="accordion('10','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show10'"  (click)="accordion('10','show')"></ion-icon> -->
+          <ion-row *ngIf="temp=='show10'"  (click)="accordion('10','hihe')"> 
+                  <i></i>
+                 借款金额会被发放到哪里？
+                    <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+             </ion-row>
+             <ion-row *ngIf="temp!='show10'"  (click)="accordion('10','show')"> 
+                  <i></i>
+                   借款金额会被发放到哪里？
+                    <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+             </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show10'">
+       借款金额会被发放到您所绑定的收款银行卡。
+     </ion-card>
+     <ion-item>
+         <!-- <i></i>绑定银行卡无法收到打款怎么办？
+         <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show11'"  (click)="accordion('11','hihe')"></ion-icon>
+         <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show11'"  (click)="accordion('11','show')"></ion-icon> -->
+         <ion-row *ngIf="temp=='show11'"  (click)="accordion('11','hihe')"> 
+                <i></i>
+                绑定银行卡无法收到打款怎么办？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp=='show11'"  (click)="accordion('11','hihe')"> 
+                <i></i>
+                绑定银行卡无法收到打款怎么办？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+            </ion-row>
+     </ion-item>
+     <ion-card *ngIf="temp=='show11'">
+    未完成借款期间，用户不可自行更换银行卡，您可联系在线客服，重置借款状态，然后重新绑定银行卡。
+    </ion-card>
+    <ion-item>
+        <!-- <i></i>如何提升信用额度？
+        <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show12'"  (click)="accordion('12','hihe')"></ion-icon>
+        <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show12'"  (click)="accordion('12','show')"></ion-icon> -->
+        <ion-row *ngIf="temp=='show12'"  (click)="accordion('12','hihe')"> 
+                <i></i>
+                如何提升信用额度？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp=='show12'"  (click)="accordion('12','hihe')"> 
+                <i></i>
+                如何提升信用额度？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+            </ion-row>
+    </ion-item>
+    <ion-card *ngIf="temp=='show12'">
+      （1）保证个人信息的真实性；
+   （2）提高个人信息的完整度；
+   （3）保持良好的还款记录。
+   </ion-card>
+        </ion-list>
+    </div>
+    <div *ngSwitchCase="'还款'" class="loan">
+    <ion-list >
+      <ion-item>
+          <!-- <i></i>可以通过哪些方式进行还款？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show13'"   (click)="accordion('13','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show13'"  (click)="accordion('13','show')"></ion-icon> -->
+        <ion-row *ngIf="temp=='show13'"   (click)="accordion('13','hihe')"> 
+            <i></i>
+           可以通过哪些方式进行还款？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show13'"  (click)="accordion('13','show')"> 
+            <i></i>
+            可以通过哪些方式进行还款？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show13'">
+      目前平台支持2种还款方式：主动还款、到期自动扣款。
+     </ion-card>
+     <ion-item>
+         <!-- <i></i>每种方式还款成功所需的时间分别是多少？
+         <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show14'"  (click)="accordion('14','hihe')"></ion-icon>
+         <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show14'"  (click)="accordion('14','show')"></ion-icon> -->
+          <ion-row *ngIf="temp=='show14'"  (click)="accordion('14','hihe')"> 
+            <i></i>
+           每种方式还款成功所需的时间分别是多少？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show14'"  (click)="accordion('14','show')"> 
+            <i></i>
+            每种方式还款成功所需的时间分别是多少？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+     </ion-item>
+     <ion-card *ngIf="temp=='show14'">
+       1）主动还款，一般情况下还款成功会立即更新还款状态；
+        2）到期自动扣款，一般情况下平台扣款成功后会立即更新还款状态；
+    </ion-card>
+    <ion-item>
+        <!-- <i></i>如何进行主动还款？
+        <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show15'"  (click)="accordion('15','hihe')"></ion-icon>
+        <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show15'"  (click)="accordion('15','show')"></ion-icon> -->
+         <ion-row *ngIf="temp=='show15'"  (click)="accordion('15','hihe')"> 
+            <i></i>
+           如何进行主动还款？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show15'"  (click)="accordion('15','show')"> 
+            <i></i>
+            如何进行主动还款？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+    </ion-item>
+    <ion-card *ngIf="temp=='show15'">
+    借款后，会在首页显示立即还款选项。选择支付方式输入交易密码即可完成还款，默认从绑定银行卡中支付还款金额（还款前您需确保您的绑定银行卡内存有大于或等于需还款的金额）。
+   </ion-card>
+   <ion-item>
+       <!-- <i></i>平台如何进行自动扣款？
+       <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show16'"  (click)="accordion('16','hihe')"></ion-icon>
+       <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show16'"  (click)="accordion('16','show')"></ion-icon> -->
+       <ion-row *ngIf="temp=='show16'"  (click)="accordion('16','hihe')"> 
+            <i></i>
+           平台如何进行自动扣款？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show16'"  (click)="accordion('16','show')"> 
+            <i></i>
+            平台如何进行自动扣款？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+   </ion-item>
+   <ion-card *ngIf="temp=='show16'">
+   若在借款期限内未主动发起还款，则平台会在还款日当天零点从绑定银行卡中扣除所借款项，扣款成功后会向注册手机号发送短信提醒。
+  </ion-card>
+  <ion-item>
+      <!-- <i></i>银行卡账户余额不足会影响自动扣款吗？
+      <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show17'"  (click)="accordion('17','hihe')"></ion-icon>
+      <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show17'" (click)="accordion('17','show')"></ion-icon> -->
+       <ion-row *ngIf="temp=='show17'"  (click)="accordion('17','hihe')"> 
+            <i></i>
+          银行卡账户余额不足会影响自动扣款吗？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show17'" (click)="accordion('17','show')"> 
+            <i></i>
+            银行卡账户余额不足会影响自动扣款吗？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+  </ion-item>
+  <ion-card *ngIf="temp=='show17'">
+  银行卡账户余额不足，会导致平台扣款失败，可能会造成逾期，请保证在扣款之前您的银行账户资金大于或等于您的需还款金额。
+ </ion-card>
+ <ion-item>
+     <!-- <i></i>如何确认支付宝是否还款成功？
+     <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show18'"  (click)="accordion('18','hihe')"></ion-icon>
+     <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show18'"  (click)="accordion('18','show')"></ion-icon> -->
+     <ion-row *ngIf="temp=='show18'"  (click)="accordion('18','hihe')"> 
+            <i></i>
+          如何确认支付宝是否还款成功？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show18'"  (click)="accordion('18','show')"> 
+            <i></i>
+            如何确认支付宝是否还款成功？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+   </ion-item>
+   <ion-card *ngIf="temp=='show18'">
+   还款后请及时在【我的】-【借款记录】，查看还款状态，当页面显示“已还款”时，则表示还款成功。订单详情只显示最近一期借款详情。
+  </ion-card>
+  <ion-item>
+      <!-- <i></i>如何查看到期还款日和还款金额？
+      <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show19'"  (click)="accordion('19','hihe')"></ion-icon>
+      <ion-icon name="ios-arrow-forward" item-right *ngIf="temp!='show19'"  (click)="accordion('19','show')"></ion-icon> -->
+       <ion-row *ngIf="temp=='show19'"  (click)="accordion('19','hihe')"> 
+            <i></i>
+          如何查看到期还款日和还款金额？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp!='show19'"  (click)="accordion('19','show')"> 
+            <i></i>
+           如何查看到期还款日和还款金额？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+  </ion-item>
+  <ion-card *ngIf="temp=='show19'">
+  您可在【我的】-【借款记录】，查看您的到期还款日和还款金额。
+  </ion-card>
+  <ion-item>
+      <!-- <i></i>可以提前还款吗？
+      <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show20'"  (click)="accordion('20','hihe')"></ion-icon>
+      <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show20'"  (click)="accordion('20','show')"></ion-icon> -->
+       <ion-row *ngIf="temp=='show20'"  (click)="accordion('20','hihe')"> 
+            <i></i>
+          可以提前还款吗？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp !='show20'"  (click)="accordion('20','show')"> 
+            <i></i>
+           可以提前还款吗？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+  </ion-item>
+  <ion-card *ngIf="temp=='show20'">
+  可以提前还款，还款金额不变。您可在立即还款页面点击立即还款。
+  </ion-card>
+  <ion-item>
+      <!-- <i></i>未按时还款的影响有哪些？
+      <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show21'"  (click)="accordion('21','hihe')"></ion-icon>
+      <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show21'"  (click)="accordion('21','show')"></ion-icon> -->
+      <ion-row *ngIf="temp=='show21'"  (click)="accordion('21','hihe')"> 
+            <i></i>
+          未按时还款的影响有哪些？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp !='show21'"  (click)="accordion('21','show')"> 
+            <i></i>
+           未按时还款的影响有哪些？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+  </ion-item>
+  <ion-card *ngIf="temp=='show21'">
+  未按时还款，会产生逾期费用，并会记录在网络征信系统中，对您的信用产生不良影响。请您按时还款，保持良好的信用记录。
+  </ion-card>
+
+     </ion-list>
+   </div>
+    <ion-list *ngSwitchCase="'认证'" class="loan">
+      <ion-item>
+          <!-- <i></i>申请借款需要做哪些认证？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show22'"  (click)="accordion('22','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show22'"  (click)="accordion('22','show')"></ion-icon> -->
+          <ion-row *ngIf="temp=='show22'"  (click)="accordion('22','hihe')"> 
+            <i></i>
+          申请借款需要做哪些认证？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp !='show22'"  (click)="accordion('22','show')"> 
+            <i></i>
+           申请借款需要做哪些认证？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card  *ngIf="temp=='show22'">
+    用户注册后，需要完成个人信息、手机认证、芝麻授信、银行卡四项认证后才可以申请借款。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>为什么要提交这些信息
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show23'"   (click)="accordion('23','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show23'"  (click)="accordion('23','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show23'"   (click)="accordion('23','hihe')"> 
+            <i></i>
+          为什么要提交这些信息
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp !='show23'"  (click)="accordion('23','show')"> 
+            <i></i>
+           为什么要提交这些信息
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show23'">
+      为了防止您的信息被他人盗用，并根据这些信息计算您的信用额度，我们需要您提供这些信息进行认证。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>用户信息安全吗？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show24'"  (click)="accordion('24','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show24'" (click)="accordion('24','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show24'"  (click)="accordion('24','hihe')"> 
+            <i></i>
+         用户信息安全吗？
+            <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+        </ion-row>
+        <ion-row *ngIf="temp !='show24'" (click)="accordion('24','show')"> 
+            <i></i>
+           用户信息安全吗？
+            <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show24'">
+    我们会严格遵守监管部门的规定，对您的个人信息严格保密，您的信息安全会得到全面保障。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>如何更改身份认证信息？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show25'"  (click)="accordion('25','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show25'"  (click)="accordion('25','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show25'"  (click)="accordion('25','hihe')"> 
+                <i></i>
+            如何更改身份认证信息？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show25'"  (click)="accordion('25','show')"> 
+                <i></i>
+            如何更改身份认证信息？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show25'" >
+      身份认证信息保存后，用户无法自行修改，请联系在线客服，我们将在核实身份后为您更改。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>为什么会读取联系人失败？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show26'"  (click)="accordion('26','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show26'"  (click)="accordion('26','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show26'"  (click)="accordion('26','hihe')"> 
+                <i></i>
+            为什么会读取联系人失败？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show26'"  (click)="accordion('26','show')"> 
+                <i></i>
+            为什么会读取联系人失败？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show26'" >
+        可能是由于您没有授权八戒快钱读取联系人的权限。
+  （1）ios用户，可以通过【设置】-【隐私】-【通讯录】-【八戒快钱】-【开启权限】；
+  （2）安卓用户，可以到设置里面开启读取权限，具体设置方式根据机型不同而有所差异。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>目前平台支持的银行卡有哪些?
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show27'"  (click)="accordion('27','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right  *ngIf="temp !='show27'"  (click)="accordion('27','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show27'" (click)="accordion('27','hihe')"> 
+                <i></i>
+            目前平台支持的银行卡有哪些?
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show27'" (click)="accordion('27','show')"> 
+                <i></i>
+           目前平台支持的银行卡有哪些?
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show27'">
+      目前支持：工商银行、农业银行、光大银行、邮政储蓄银行、兴业银行、建设银行、招商银行、中国银行、浦发银行、平安银行、华夏银行、中信银行、交通银行、民生银行、广发银行。后续还会支持更多银行。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>银行卡绑定不成功有哪些原因？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show28'"   (click)="accordion('28','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right  *ngIf="temp !='show28'"  (click)="accordion('28','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show28'"   (click)="accordion('28','hihe')"> 
+                <i></i>
+            银行卡绑定不成功有哪些原因？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show28'"  (click)="accordion('28','show')"> 
+                <i></i>
+          银行卡绑定不成功有哪些原因？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show28'">
+        可能有以下3种原因：
+  （1）银行卡信息填写有误，请核实后重新填写；
+  （2）银行预留手机号或验证码填写错误，请核实后重新填写；
+  （3）绑定的银行卡不是您本人的，请用本人的银行卡进行绑定。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>如何更换收款银行卡？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show29'"  (click)="accordion('29','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show29'"  (click)="accordion('29','show')"></ion-icon> -->
+          <ion-row *ngIf="temp=='show29'"  (click)="accordion('29','hihe')"> 
+                <i></i>
+            如何更换收款银行卡？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show29'"  (click)="accordion('29','show')"> 
+                <i></i>
+          如何更换收款银行卡？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show29'">
+      您的借款还清后，可在【我的】-【完善资料】-【银行卡】-【重新绑卡】，重新绑定新的银行卡。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>芝麻信用是必须的吗？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show30'"  (click)="accordion('30','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show30'"  (click)="accordion('30','show')"></ion-icon> -->
+           <ion-row *ngIf="temp=='show30'"  (click)="accordion('30','hihe')"> 
+                <i></i>
+            芝麻信用是必须的吗？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show30'"  (click)="accordion('30','show')"> 
+                <i></i>
+          芝麻信用是必须的吗？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show30'">
+        八戒快钱产品目前要求用户必须有芝麻信用，且授权八戒快钱读取您的芝麻信用分数，否则无法申请借款。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>什么是手机运营商服务密码？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp=='show31'"   (click)="accordion('31','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show31'"  (click)="accordion('31','show')"></ion-icon> -->
+          <ion-row *ngIf="temp=='show31'"   (click)="accordion('31','hihe')"> 
+                <i></i>
+            什么是手机运营商服务密码？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show31'"  (click)="accordion('31','show')"> 
+                <i></i>
+          什么是手机运营商服务密码？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp=='show31'">
+      手机运营商服务密码，是您的手机在运营商获取服务时的认证密码。修改或找回手机运营商服务密码，请联系您的手机运营商。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>忘记运营商服务密码怎么办？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp =='show32'"  (click)="accordion('32','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show32'"  (click)="accordion('32','show')"></ion-icon> -->
+          <ion-row *ngIf="temp =='show32'"  (click)="accordion('32','hihe')"> 
+                <i></i>
+           忘记运营商服务密码怎么办？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show32'"  (click)="accordion('32','show')"> 
+                <i></i>
+         忘记运营商服务密码怎么办？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp =='show32'">
+      忘记服务密码，可以联系运营商客服或登陆运营商官网进行查询或更改。
+      </ion-card>
+      <ion-item>
+          <!-- <i></i>手机运营商认证失败的原因有哪些？
+          <ion-icon name="ios-arrow-down" item-right *ngIf="temp =='show33'"  (click)="accordion('33','hihe')"></ion-icon>
+          <ion-icon name="ios-arrow-forward" item-right *ngIf="temp !='show33'"  (click)="accordion('33','show')"></ion-icon> -->
+          <ion-row *ngIf="temp =='show33'"  (click)="accordion('33','hihe')"> 
+                <i></i>
+            手机运营商认证失败的原因有哪些？
+                <ion-icon name="ios-arrow-down" item-right ></ion-icon>
+            </ion-row>
+            <ion-row *ngIf="temp !='show33'"  (click)="accordion('33','show')"> 
+                <i></i>
+          手机运营商认证失败的原因有哪些？
+                <ion-icon name="ios-arrow-forward" item-right ></ion-icon>
+        </ion-row>
+      </ion-item>
+      <ion-card *ngIf="temp =='show33'">
+                    可能有以下5种原因：
+            （1）您当前的注册手机号不是本人在运营商的实名手机号，请更换为实名手机号；
+            （2）您填写的手机运营商服务密码不正确，请核实后重新填写；
+            （3）您在运营商那里开启了账单保护功能，联系运营商关闭该功能即可；
+            （4）运营商出账期无法进行手机认证，请改日再试；
+            （5）由于网络不稳定或系统繁忙导致认证失败，请稍后再试。
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>

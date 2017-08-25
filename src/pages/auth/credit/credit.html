@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      芝麻信用认证
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <div class="nosuccess" *ngIf="!profile || !profile.isCompleted()" class="fromtell">
+        <img class="dv_logo" src="assets/icon/shouxin.png" />
+
+  <section>
+    <img src="assets/icon/xin.jpg" />
+    <p>我们需要您授权芝麻信用<br/>良好的信用记录会加速审核和提高额度</p>
+  </section>
+
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+    <!-- <ion-item-group>
+       <ion-item-divider color="light">请选择接受校验码的手机号码</ion-item-divider> 
+
+      <ion-item class="input-has-focus item-input-has-focus">
+        <ion-label fixed>姓名</ion-label>
+        <ion-input formControlName="name" type="text" value=""  readonly></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>身份证</ion-label>
+        <ion-input formControlName="id_card_number" type="text" value=""  readonly></ion-input>
+      </ion-item>
+    </ion-item-group> -->
+ 
+    <ion-row>
+      <ion-col center text-center>
+        <!-- <button ion-button [navPush]="agreeCreditPage" [ngClass]="{'realy': this.form.status == 'VALID' }">同意授权&下一步</button> -->
+         <button ion-button [navPush]="agreeCreditPage" class="realy">同意授权&下一步</button>
+      </ion-col>
+    </ion-row>
+  </form>
+   </div>
+  
+   <div class="success" *ngIf="profile && profile.isCompleted()"> 
+   
+    <section>
+      <img src="assets/icon/xin.jpg" />
+      <p>您的芝麻信用已授权</p>
+
+    </section>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button [navPush]="idPage">已授权</button>
+      </ion-col>
+    </ion-row>  
+  </div>
+  <div class="model" id="modelcred">
+      <section>
+        <img src="assets/icon/success_03.jpg" />
+        <h3>芝麻授权成功</h3>
+      </section>
+  </div>
+</ion-content>

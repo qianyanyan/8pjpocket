@@ -1,0 +1,61 @@
+page-account-chat {
+  .toolbar-title{
+    text-align: center;
+    color: #fff;
+  }
+.back-button.show-back-button {
+    display: inline-block;
+    position: absolute;
+    z-index: 1000;
+}
+.bar-button-default, .bar-button-default.bar-button-ios-default, .show-back-button {
+    color: #fff !important;
+    background-color: transparent;
+}
+  .dv_data {
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 0 4px #c4c6c8;
+      padding: 4%;
+      margin: 8px 0;
+      overflow: hidden;
+      img {
+          width: 50px;
+          height: 50px;
+          border-radius: 999999px;
+          float: left;
+      }
+      .dv_name_wrap {
+          float: left;
+          margin-left: 10px;
+      }
+      h5 {
+          margin: 0 !important;
+          line-height: 25px;
+          color: #979797;
+      }
+      p {
+          margin: 0 !important;
+          line-height: 25px;
+          color: #c4c4c4;
+      }
+  }
+  .toolbar-background{
+     background: #302e2f !important;
+  }
+ 
+  ion-list {
+      box-shadow: 0 0 4px #c4c6c8;
+  }
+  .item-md,.item {
+      color: #797979 !important;
+  }
+  .alert-wrapper .alert-button-group .alert-button {
+
+        color: #000;
+
+    }
+
+
+}
+

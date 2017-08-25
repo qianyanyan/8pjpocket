@@ -1,0 +1,89 @@
+<ion-header no-shadow>
+  <ion-navbar class="page-navbar">
+    <ion-title>借款确认</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <section class="block-item">
+    <section class="block-item-content">
+      <ion-list class="messTop">
+        <ion-item>
+          <ion-row>
+            <ion-col col-4>借款金额</ion-col>
+            <ion-col col-6>{{ loanAmount }}元 </ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col col-4>借款期限</ion-col>
+            <ion-col col-6>{{ loanPeriod }}天</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col col-4>到账银行</ion-col>
+             <ion-col col-6>
+               {{backCardProfile?backCardProfile.field_suoshuyinxing?banks?banks[backCardProfile.field_suoshuyinxing]:'':'':''}}
+              尾号{{ bankProfile ? cont : '' }}
+            </ion-col> 
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col col-4>到账金额</ion-col>
+            <ion-col col-6>{{ actualAmount }}元</ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </section>
+  </section>
+
+  <section class="block-item">
+    <section class="block-item-content">
+      <section class="block-item-header">
+      根据您当前信用，本次借款费用预计如下:
+      </section>
+      <p class="interst">利息<span>{{ loanAmount * loanPeriod * feeRates.rlx / 100 }}元</span></p>
+
+      <h4>日化利率0.05%，由银行、信托、消费金融公司等收取</h4>
+      <ion-list no-lines class="messCenter" >
+        <ion-item>
+          <ion-row>
+            <ion-col col-3>信息流量费</ion-col>
+            <ion-col col-7>{{ loanAmount * feeRates.xxllf / 100 }}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col col-3>平台运营费</ion-col>
+            <ion-col col-7>{{ loanAmount * feeRates.ptyyf / 100 }}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-col col-3>征信审核费</ion-col>
+            <ion-col col-7>{{ loanAmount * feeRates.zxshf / 100 }}</ion-col>
+          </ion-row>
+        </ion-item>
+        </ion-list>
+        <h4>信息流量费、征信审核费第三方收取，平台运营费八戒快钱收取</h4>
+        <p class="money">还款金额<span>{{ loanAmount }}元</span></p>
+    </section>
+  </section>
+
+  <div class="order-detail-btn">
+    <p>我已同意<span (click) ="goAgree()" >《用户借款协议》</span></p>
+    <button ion-button block round center color="main-color" (click)="submit();">确认借款</button>
+  </div>
+ <div class="model" id="modelcred">
+    <section>
+      <img src="assets/icon/success_03.jpg" />
+      <h3>借款申请成功</h3>
+    </section>
+ </div>
+</ion-content>

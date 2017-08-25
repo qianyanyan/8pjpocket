@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    我的借款
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+      <section class="fromMess" *ngIf="loan">
+        <div class="listPut">
+            <label>借款金额</label>
+            <span>{{ loan ? loan.field_amount : 0 }}元</span>
+        </div>
+        <div class="listPut">
+          <label>借款期限</label>
+           <span>{{ loan ? loan.field_period : 0 }}天</span>
+        </div>
+        <h3></h3>
+        <div class="listPut">
+          <label>到账日期</label>
+          <span>{{ (loan ? loan.field_review_date*1000 : 0)  | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        <div class="listPut">
+          <label>应还款日期</label>
+          <span>{{ (loan ? loan.field_repayment_date*1000 : 0) | date: 'yyyy-MM-dd' }}</span>
+        </div>
+        <div class="listPut" *ngIf="loan && loan.field_order_status == 'completed'">
+           <label>实际还款日期</label> 
+           <span>{{ (loan ? loan.changed*1000 : 0) |  date: 'yyyy-MM-dd'}}</span> 
+        </div>
+    </section>
+      <h3 *ngIf="!loan">暂无借款订单</h3>
+</ion-content>

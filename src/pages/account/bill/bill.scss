@@ -1,0 +1,65 @@
+page-account-bill{
+  background: #f5f5f5;
+    .bar-button-default-md{
+    position: absolute;
+    z-index: 100;
+  }
+    ion-title{
+      background: #302e2f;
+      color: #fff;
+      .toolbar-title-ios,.toolbar-title{
+        color: #fff;
+      }
+       .toolbar-title-md{
+         text-align: center
+      }
+
+    }
+  .toolbar-background{
+     background: #302e2f !important;
+  }
+  .bar-button {
+    color: #fff !important;
+  }
+  .dv_logo {
+      display: block;
+    width: 100%;
+      border: none !important;
+
+  }
+  ion-content {
+      overflow: hidden !important;
+      height: 100% !important;
+      background: #f5f5f5 !important;
+         h3{
+           text-align: center;
+           margin-top: 30px;
+         }
+        .fromMess{
+          background: #fff;
+            .listPut{
+              overflow: hidden;
+              width: 100%;
+              border-bottom: 1px solid #f5f5f5;
+              position: relative;
+              height: 45px;
+              label{
+                position: absolute;
+                left: 15px;
+                top:15px;
+                font-size: 15px;
+                color: #333;
+              }
+              span{
+                font-size: 15px;
+                line-height: 25px;
+                border: none;
+                display: inline-block;
+                padding: 10px 0 10px 155px;
+              }
+            }
+        }
+
+
+  }
+}

@@ -1,0 +1,35 @@
+page-account-about {
+  .toolbar-title{
+    text-align: center;
+    color: #fff;
+  }
+.back-button.show-back-button {
+    display: inline-block;
+    position: absolute;
+    z-index: 1000;
+}
+.bar-button-default, .bar-button-default.bar-button-ios-default, .show-back-button {
+    color: #fff !important;
+    background-color: transparent;
+}
+  
+  .toolbar-background{
+     background: #302e2f !important;
+  }
+ 
+  ion-list {
+      box-shadow: 0 0 4px #c4c6c8;
+  }
+  .item-md,.item {
+      color: #797979 !important;
+  }
+  ion-content{
+      p{
+          text-indent: 30px;
+          font-size: 14px;
+          color: #666;
+      }
+  }
+
+}
+

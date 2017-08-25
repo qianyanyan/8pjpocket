@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    银行卡管理
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <div *ngIf="backCardProfile&&backCardProfile.field_suoshuyinxing">
+          <h2>主卡</h2>
+          <ion-card >
+            <header padding>
+                <h3><img alt="" src="assets/icon/{{car_id}}.jpg" class="banHear" />
+                  {{backCardProfile?backCardProfile.field_suoshuyinxing?banks?banks[backCardProfile.field_suoshuyinxing]:'':'':''}}
+                </h3>
+            </header>
+            <ion-card-content>
+              <p>{{backCardProfile ? backCardProfile.field_cardid : '' }}<em>已绑定</em></p>
+            </ion-card-content>
+
+        </ion-card>
+      </div>
+     <h3 *ngIf="!backCardProfile || !backCardProfile.field_suoshuyinxing" class="notCard">暂未有银行卡</h3> 
+    
+</ion-content>

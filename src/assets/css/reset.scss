@@ -1,0 +1,278 @@
+/* LESS Document */
+* { margin:0; padding:0}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary,audio,canvas,video{margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden]{display:none;visibility:hidden}
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+abbr[title]{cursor:help;border-bottom:1px dotted}
+b,strong{font-weight:bold}
+code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}
+del{font-family:Arial}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;font-weight:normal;}
+em,q,cite,address { font-weight:normal; font-style:normal}
+address { display:inline}
+big,small { font-size:12px}
+body { font:14px/1.5 Microsoft Yahei,"PinFang SC","Microsoft Yahei","Hiragino Sans GB",sans-serif; vertical-align: middle; color:#333; background:#fff}
+img { border:0}
+li { list-style:none}
+i{font-style:normal;}
+q { quotes:none}
+q:before,q:after {content:""}
+strong { font-weight:bold}
+del { font-family:Simsun}
+dfn { padding-right:2px; text-decoration:none; font-family:Arial; font-style:normal}
+table{border-collapse:collapse;border-spacing:0}
+th { text-align:left; font-weight:normal}
+
+fieldset,legend{border:0}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button,input,select,select optgroup,textarea{font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;vertical-align:middle}button,input,select[multiple],textarea{background-image:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{height:auto}textarea{overflow:auto;vertical-align:top}
+
+/* link */
+a { color:#4d4d4d; text-decoration:none; outline-style:none;cursor: pointer;}
+a:hover { color:#06c; text-decoration:underline;transition: color .20s linear;	-o-transition: color .20s linear;	-webkit-transition: color .20s linear;	-moz-transition: color .20s linear;}
+a:link {
+	text-decoration: none;
+	cursor: pointer;
+}
+i {
+	font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+/*---------- 实用工具 ----------*/
+
+
+
+
+/* form */
+input,select {
+	vertical-align:middle;
+	font-size:14px;
+	font-family:"Microsoft Yahei","Hiragino Sans GB",sans-serif;
+	color:#333;
+  outline: none;
+}
+
+input[type="text"]:disabled{
+  background-color:#bbbbbb;
+  color:#666;
+}
+input[type="checkbox"],input[type="radio"]{
+	margin-right:4px;
+}
+input[type="checkbox"]:checked,input[type="radio"]:checked{
+	background-color:#33b0c4;
+	color:#fff;
+}
+
+input[type="checkbox"]:checked{
+}
+
+/* input placeholder color */
+input::-webkit-input-placeholder {
+	color:#bbbbbb;
+	text-transform: uppercase;
+}
+input::-moz-placeholder {
+	color:#bbbbbb;
+	text-transform: uppercase;
+}
+input:-moz-placeholder {   /* Older versions of Firefox */
+	color:#bbbbbb;
+	text-transform: uppercase;
+}
+input:-ms-input-placeholder {
+	color:#bbbbbb;
+	text-transform: uppercase;
+}
+
+$toolbar-md-button-color :#fb6d07;
+ $toolbar-iOS-button-color :#fb6d07;
+ $colors: (
+    primary: #ffb700,
+    secondary: #32db64,
+    danger: #f53d3d,
+    light: #f4f4f4,
+    dark: #222,
+		twitter:(
+        base: #55acee,
+        contrast: #ffffff ,
+    )
+);
+my-component {
+    background : color($colors, twitter, base)
+}
+@import '../fonts/wecare';
+.ion-ios-smart-outline:before {
+  content: "\e900";
+}
+.ion-md-arrow-dropleft:before {
+    content: "\f112" !important;
+}
+.ion-ios-smart:before {
+content: "\e900";
+}
+
+.ion-md-smart-outline:before {
+  content: "\e900";
+}
+
+.ion-md-smart:before {
+  content: "\e900";
+}
+
+.ion-ios-my-outline:before {
+  content: "\e90e";
+}
+
+.ion-ios-my:before {
+    content: "\e90e";
+}
+
+.ion-md-my-outline:before {
+    content: "\e90e";
+}
+
+.ion-md-my:before {
+    content: "\e90e";
+}
+.ion-ios-cards-outline:before {
+  content: "\e925";
+}
+
+.ion-ios-cards:before {
+  content: "\e925";
+}
+
+.ion-md-cards-outline:before {
+  content: "\e925";
+}
+
+.ion-md-cards:before {
+  content: "\e925";
+}
+
+
+.ion-ios-text-outline:before {
+  content: "\e91c";
+}
+
+.ion-ios-text:before {
+  content: "\e91c";
+}
+
+.ion-md-text-outline:before {
+  content: "\e91c";
+}
+.ion-md-text:before {
+    content: "\e91c" !important;;
+}
+.ion-md-tell:before {
+  content: "\e903";
+}
+// .ion-ios-text-outline:before {
+//   content: "\e91c";
+// }
+
+.ion-ios-tell:before {
+  content: "\e903";
+}
+
+.ion-md-pass:before {
+  content: "\e904";
+}
+.ion-ios-pass:before {
+  content: "\e904";
+}
+
+.ion-md-code:before {
+  content: "\e919";
+}
+.ion-ios-code:before {
+  content: "\e919";
+}
+.ion-md-person:before {
+  content: "\e90f";
+}
+.ion-ios-person:before {
+  content: "\e90f";
+}
+
+.ion-md-wenhao:before {
+  content: "\e91e";
+}
+.ion-ios-wenhao:before {
+  content: "\e91e";
+}
+.ion-md-moblie:before {
+  content: "\e905";
+}
+.ion-ios-moblie:before {
+  content: "\e905";
+}
+.ion-md-zhima:before {
+  content: "\e934";
+}
+.ion-ios-zhima:before {
+  content: "\e934";
+}
+.ion-md-yinhang:before {
+  content: "\e92b";
+}
+.ion-ios-yinhang:before {
+  content: "\e92b";
+}
+.ion-md-checkbox:before {
+  content: "\e921";
+}
+.ion-ios-checkbox:before {
+  content: "\e921";
+}
+.ion-md-contact:before {
+  content: "\e924";
+}
+.ion-ios-contact:before {
+  content: "\e924";
+}
+.ion-md-server:before {
+  content: "\e923";
+}
+.ion-ios-server:before {
+  content: "\e923";
+}
+.ion-md-about:before {
+  content: "\e906";
+}
+.ion-ios-about:before {
+  content: "\e906";
+}
+.ion-md-chagepass:before {
+  content: "\e91f";
+}
+.ion-ios-chagepass:before {
+  content: "\e91f";
+}
+
+ion-loading{
+   .backdrop-no-tappable{
+      opacity: 0 !important;
+      
+   }
+  .loading-wrapper{
+        background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 12px  !important;
+        padding: 5px !important;
+        .loading-spinner{
+            ion-spinner {
+              position: relative;
+              display: inline-block;
+              width: 50px;
+              height: 50px;
+              color: #fff;
+                circle {
+                      stroke: #fff !important;
+                  }
+          }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+page-auth-credit {
+    background: #f5f5f5;
+    ion-title{
+      background: #302e2f;
+      color: #fff;
+      text-align: center;
+      .toolbar-title-ios,.toolbar-title{
+        color: #fff;
+        text-align: center;
+      }
+
+    }
+    .toolbar-background{
+       background: #302e2f !important;
+    }
+    .bar-button {
+      color: #fff !important;
+    }
+    ion-content {
+      .dv_logo {
+          display: block;
+          width: 100%;
+
+          border: none !important;
+
+
+      }
+      section{
+        border-top: 1px solid #ffb700;
+        padding: 0 15px;
+       background: #fff;
+        img{
+          margin: 20px auto;
+          width: 36%;
+          display: block;
+        }
+         p{
+           font-size: 15px;
+           color: #888;
+           text-align: center;
+           line-height: 21px;
+         }
+
+
+      }
+      .button-ios,.button {
+         border-radius: 4px;
+         height: 2.8em;
+         font-size: 1.6rem;
+         color: #fff;
+          background: #cccccc ;
+        //  background-color: #ffb700;
+         margin: 20px 0.2rem 0;
+         padding: 0 1em;
+         display: block;
+         width: 100%;
+         border-radius: 22px;
+     }
+        .realy{
+           background-color: #ffb700;
+        }
+
+     .button-ios.activated,.button.activated{
+       background-color: #ffb700;
+     }
+     .col>span{
+       float: right;
+       font-size: 12px ;
+       color: #333;
+       margin-top: 10px;
+       margin-right: 15px;
+     }
+
+    }
+     .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: #f5f5f5 !important;
+      box-shadow: none !important;
+  }
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: #f5f5f5;
+  }
+  .item.item-divider.item-md.item-input-has-value{
+            border-bottom-color: #f5f5f5 !important;
+      box-shadow: none !important;
+  }
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {
+      border-bottom-color: #f5f5f5 !important;
+        box-shadow: none !important;
+  }
+  .success{
+      
+      &.content-ios,&.content{
+          background: #f5f5f5;
+      }
+      section{
+        border-top: 1px solid #ffb700;
+        padding: 0 15px 60px 15px;
+       background: #fff;
+        img{
+          margin: 55px auto 17px;
+          width: 36%;
+          display: block;
+        }
+         p{
+           font-size: 15px;
+           color: #999;
+           text-align: center;
+           line-height: 21px;
+         }
+
+
+      }
+      .button-ios ,.button{
+         border-radius: 4px;
+         height: 2.8em;
+         font-size: 1.6rem;
+         color: #fff;
+         background-color: #ddd;
+         margin: 20px 0.2rem 0;
+         padding: 0 1em;
+         display: block;
+         width: 100%;
+         border-radius: 22px;
+     }
+
+     .button-ios.activated,.button.activated{
+       background-color: #ddd;
+     }
+
+  }
+  .model{
+      position: fixed;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      background: rgba(0,0,0,.7);
+      display: none;
+      section{
+        width: 50%;
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        background: #fff;
+        border-radius: 14px;
+        img{
+          width: 48%;
+          display: block;
+          margin: 0px auto;
+          padding: 20px 0 10px 0;
+        }
+        h3{
+          text-align: center;
+              margin-top: 10px !important;
+          border-top: 0px;
+          text-indent: 0;
+          border-bottom: 0px;
+          line-height: 18px;
+          margin-bottom: 20px;
+        }
+      }
+  }
+  
+}

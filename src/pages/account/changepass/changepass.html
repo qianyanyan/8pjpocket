@@ -1,0 +1,34 @@
+<ion-header no-border>
+  <ion-navbar color="mblue">
+    <ion-title>修改密码</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <form [formGroup]="form"  (ngSubmit)="onSubmit()" >
+  <section class="fromMess" padding>
+    <input type="hidden" name="code_id" formControlName="code_id" /> 
+    <div class="listPut">
+      <label>
+        <ion-icon name="pass"></ion-icon>
+      </label>
+      <input type="password"  placeholder="6-20位新密码" formControlName="password1" required  />
+    </div>
+    <div class="listPut">
+      <label>
+        <ion-icon name="code"></ion-icon>
+      </label>
+      <input type="password" placeholder="请再次输入新密码" formControlName="password2" required  />
+    </div>
+    <div class="listPut">
+      <label>
+        <ion-icon name="code"></ion-icon>
+      </label>
+      <input type="text" placeholder="输入验证码" formControlName="code" required />
+      <button (click)='sendVerificationCode();' [disabled]="sendVerificationCodeDisabled">{{ sendVerificationCodeText }}</button> 
+    </div>
+  </section>
+  <div padding>
+    <button ion-button color="icon-shop" block [ngClass]="{'realy': this.form.status == 'VALID' }">确定</button>
+  </div>
+  </form>
+</ion-content>
